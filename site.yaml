@@ -1,0 +1,5 @@
+- hosts: servidordhcp
+  become: true
+  roles:
+   - role: dhcp
+   - role: router-nat

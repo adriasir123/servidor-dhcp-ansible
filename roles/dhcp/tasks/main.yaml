@@ -1,0 +1,31 @@
+- name: "Actualizando paquetes..."
+  apt: update_cache=yes upgrade=yes
+
+- name: "Instalando isc-dhcp-server..."
+  apt:
+    name: isc-dhcp-server
+
+- name: "Habilitando /etc/dhcp/dhcpd.conf..."
+  lineinfile:
+    path: /etc/default/isc-dhcp-server
+    regexp: '^#DHCPDv4_CONF='
+    line: DHCPDv4_CONF=/etc/dhcp/dhcpd.conf
+
+- name: "Especificando interfaces DHCP..."
+  lineinfile:
+    path: /etc/default/isc-dhcp-server
+    regexp: '^INTERFACESv4='
+    line: INTERFACESv4="eth2 eth3"
+
+- name: "Sobreescribiendo dhcpd.conf..."
+  copy:
+    src: dhcpd.conf
+    dest: /etc/dhcp/dhcpd.conf
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+
+- name: "Reiniciando isc-dhcp-server..."
+  service:
+    name: isc-dhcp-server
+    state: restarted

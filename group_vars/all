@@ -1,0 +1,50 @@
+######################
+# dhcpd.conf variables
+######################
+
+# subnet privada1
+priv1_network: 192.168.100.0
+priv1_mask: 255.255.255.0
+priv1_gateway: 192.168.100.1
+
+priv1_range_start: 192.168.100.100
+priv1_range_end: 192.168.100.150
+priv1_dns1: 1.1.1.1
+priv1_dns2: 1.0.0.1
+priv1_default_time: 43200
+priv1_max_time: 43200
+
+# subnet privada2
+priv2_network: 192.168.200.0
+priv2_mask: 255.255.255.0
+priv2_gateway: 192.168.200.1
+
+priv2_range_start: 192.168.200.100
+priv2_range_end: 192.168.200.150
+priv2_dns1: 1.1.1.1 
+priv2_dns2: 1.0.0.1
+priv2_default_time: 3600 
+priv2_max_time: 3600
+
+#############################
+# interfaces-router variables
+#############################
+
+eth1_address: 192.168.0.2
+eth1_netmask: 255.255.255.0
+eth1_gateway: 192.168.0.1
+
+eth2_address: 192.168.100.1
+eth2_netmask: 255.255.255.0
+
+eth3_address: 192.168.200.1
+eth3_netmask: 255.255.255.0
+
+#############################
+# router-nat variables
+#############################
+
+default_route: 192.168.0.1
+
+
+

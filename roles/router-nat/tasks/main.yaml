@@ -16,19 +16,11 @@
 
 # Forwarding 
 
-# Instalar plugin:
-# ansible-galaxy collection install ansible.posix
-
 - name: Habilitando ipv4 forwarding (persistente)...
   ansible.posix.sysctl:
     name: net.ipv4.ip_forward
     value: '1'
     sysctl_set: yes
-
-# Este plugin cambia:
-# /proc/sys/net/ipv4/ip_forward 
-# /etc/sysctl.conf
-
 
 # Iptables
 
@@ -38,8 +30,6 @@
 - name: Instalando iptables-persistent...
   apt:
     name: iptables-persistent
-
-# Las reglas que hubieran se guardan en /etc/iptables/rules.v4
 
 
 ##########################
